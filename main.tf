@@ -8,6 +8,7 @@ resource "azurerm_resource_group" "TerraformCloudRG" {
 
   tags = {
     terraform = "Terraform Cloud"
+    terraformcloud="cambio provocado"
   }
 }
 
