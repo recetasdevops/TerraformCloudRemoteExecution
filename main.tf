@@ -13,7 +13,7 @@ resource "azurerm_resource_group" "TerraformCloudRG" {
 
 resource "azurerm_sql_server" "sql_server" {
   name                         = var.sql_server_database_name
-  resource_group_name          = azurerm_resource_group.TerraformCloudRG
+  resource_group_name          = azurerm_resource_group.TerraformCloudRG.name
   location                     = var.location
   version                      = "12.0"
   administrator_login          =  var.sql_server_user
@@ -26,7 +26,7 @@ resource "azurerm_sql_server" "sql_server" {
 
 resource "azurerm_sql_database" "sql_database" {
   name                = azurerm_sql_server.sql_server.name
-  resource_group_name = azurerm_resource_group.TerraformCloudRG
+  resource_group_name = azurerm_resource_group.TerraformCloudRG.name
   location            = var.location
   server_name         = azurerm_sql_server.sql_server.name
 
